@@ -1,0 +1,16 @@
+[
+  {
+    "objectID": "index.html",
+    "href": "index.html",
+    "title": "High Temperatures",
+    "section": "",
+    "text": "The plot visualizes the daily maximum temperatures in Seattle from 2010 to 2021, with each point representing a single day’s reading. The distribution of points clearly illustrates strong seasonal trends, forming a distinct arch where temperatures are generally lower in the winter months (November through March) and progressively rise to their peak in the summer (July and August) before declining again. The plot effectively conveys the typical temperature range for each month across the decade, showing that while there is daily variability, the overarching annual temperature cycle in Seattle is consistent, with warm summers and relatively mild, but cooler, winters. The densest clusters of points indicate the most frequently occurring temperatures for each part of the year."
+  },
+  {
+    "objectID": "about.html",
+    "href": "about.html",
+    "title": "About",
+    "section": "",
+    "text": "Hey 👋, I am Faisal Jan from Turbat, Balochistan. I made this project during Kane’s Data Science Bootcamp. Thanks!"
+  }
+]
