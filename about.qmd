@@ -2,4 +2,4 @@
 title: "About"
 ---
 
-About this site
+Hey 👋, I am Faisal Jan from Turbat, Balochistan. I made this project during [Kane's Data Science Bootcamp](https://bootcamp.davidkane.info). Thanks!

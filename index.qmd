@@ -1,5 +1,4 @@
 ---
-title: "High Temperatures"
 execute: 
   echo: false
 ---
@@ -19,9 +18,32 @@ x <- readRDS("data/sea_wather.rds") |>
   summarise(
     tmax_c = max(air_temp, na.rm = TRUE),
     tmax_f = tmax_c * 9 / 5 + 32
-  )
+  ) |> ungroup()
 ```
 
 ```{r}
-x
+x |>
+  filter(year(day) >= 2010, year(day) <= 2021) |>
+  mutate(
+    year = year(day),
+    day_of_year = yday(day)
+  ) |>
+  ggplot(aes(x = day_of_year, y = tmax_f)) +
+  geom_point(alpha = 0.5, size = 0.5, color = "gray40") +
+  labs(
+    title = "Daily Maximum Temperatures in Seattle, 2010–2021",
+    subtitle = "Each point represents one day; seasonal trends are visible across years",
+    x = NULL,
+    y = "Max Temperature (°F)",
+    caption = "Source: NOAA ISD (via worldmet)"
+  ) +
+  scale_x_continuous(
+    breaks = c(1, 32, 60, 91, 121, 152, 182, 213, 244, 274, 305, 335),
+    labels = c("Jan", "Feb", "Mar", "Apr", "May", "Jun",
+               "Jul", "Aug", "Sep", "Oct", "Nov", "Dec")
+  ) +
+  scale_y_continuous(limits = c(0, 120)) +
+  theme_minimal(base_size = 12)
 ```
+
+The plot visualizes the daily maximum temperatures in Seattle from 2010 to 2021, with each point representing a single day's reading. The distribution of points clearly illustrates strong seasonal trends, forming a distinct arch where temperatures are generally lower in the winter months (November through March) and progressively rise to their peak in the summer (July and August) before declining again. The plot effectively conveys the typical temperature range for each month across the decade, showing that while there is daily variability, the overarching annual temperature cycle in Seattle is consistent, with warm summers and relatively mild, but cooler, winters. The densest clusters of points indicate the most frequently occurring temperatures for each part of the year.
