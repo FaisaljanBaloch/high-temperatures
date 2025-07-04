@@ -1,0 +1,27 @@
+---
+title: "High Temperatures"
+execute: 
+  echo: false
+---
+
+```{r}
+#| warning: false
+#| message: false
+library(tidyverse)
+```
+
+```{r}
+# Read and clean the data
+x <- readRDS("data/sea_wather.rds") |>
+  filter(!is.na(air_temp)) |>
+  mutate(day = as.Date(date)) |>
+  group_by(day) |>
+  summarise(
+    tmax_c = max(air_temp, na.rm = TRUE),
+    tmax_f = tmax_c * 9 / 5 + 32
+  )
+```
+
+```{r}
+x
+```
